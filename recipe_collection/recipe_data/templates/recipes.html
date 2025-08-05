@@ -1,0 +1,16 @@
+{%extends 'base.html'%}
+
+{%block content%}
+   
+  {% if request.path == '/'%} 
+    <!-- <div> 
+        <form action="" method="GET">
+          <input type="search" placeholder="search" name="search">
+        </form>
+    </div>  -->
+  {% endif %}
+   <h1>Welcome to Recipes blog</h1>
+   <button><a  class="add-button" href="{% url 'add_recipe' %}">Add Recipes</a></button>
+
+
+{% endblock %}

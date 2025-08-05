@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ 
+
+<h1>Recipe List</h1>
+
+
+<table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Ingredients</th>
+            <th>Preparation Time</th>
+            <th>Instructions</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+
+        {% for recipe in all_recipes %}
+        <tr>
+            <td>{{ recipe.title }}</td>
+            <td>{{ recipe.ingredients }}</td>
+            <td>{{ recipe.preparation_time }}</td>
+            <td>{{ recipe.instructions }}</td>
+            <td>
+                <a href="{% url 'recipe_edit' recipe.id %}">Edit</a> |
+                <a href="{% url 'delete' recipe.id %}">Delete</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5" style="text-align:center;">No recipes found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
+
+
+
+   

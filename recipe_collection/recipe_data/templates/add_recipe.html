@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 style="color: black;">Add Recipe</h1>
+<form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+        <div>
+            <label for="{{ field.id_for_label }}">
+                {{ field.label }}{% if field.field.required %}<span style="color: red;">*</span>{% endif %}
+            </label>
+            {{ field }}
+        </div>
+    {% endfor %}
+    <button type="submit">submit</button>
+</form>
+{% endblock %}
